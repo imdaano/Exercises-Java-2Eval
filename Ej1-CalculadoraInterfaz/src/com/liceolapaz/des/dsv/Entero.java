@@ -79,6 +79,7 @@ public class Entero extends Numero {
 
         // comprobar si (variable de la izquierda) operando  es un entero
         if (operando instanceof Entero) {
+
             // crear variable local
             // esta operación lo que hace es tratar el operando en vez como un numero, como un entero.
 

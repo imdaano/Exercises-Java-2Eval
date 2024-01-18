@@ -19,6 +19,37 @@ public class Calculadora {
                         int operando = leerOperando();
                         pedirSegundoOperando();
                         int segundoOperando = leerOperando();
+                        Entero entero1 = new Entero(operando);
+                        Entero entero2 = new Entero(segundoOperando);
+                        switch (opcion) {
+                            // USANDO LAS LLAVES PODEMOS REUSAR UNA VARIABLE PROQUE SOLO SE ESTA GUARDANDO DENTRO
+                            // DE ESAS LLAVES. AL CAMBIAR DE CASO SE CREA OTRA VARIABLE CON EL MISMO NOMBRE
+                            case 1:{
+                                Numero resultado = entero1.suma(entero2);
+                                System.out.println("El resultado es: " + resultado.mostrar());
+                               break;
+                            }
+                            case 2: {
+                                Numero resultado = entero1.resta(entero2);
+
+                                System.out.println("El resultado es: " + resultado.mostrar());
+                                break;
+                            }
+                            case 3:{
+                                Numero resultado = entero1.producto(entero2);
+                                System.out.println("El resultado es: " + resultado.mostrar());
+                                break;
+                            }
+                            case 4:{
+                                Numero resultado = entero1.division(entero2);
+
+                                if (resultado  != null) {
+                                System.out.println("El resultado es: " + resultado.mostrar());
+                                }
+                                break;
+                            }
+                        }
+
                     case 2:
                 }
         }

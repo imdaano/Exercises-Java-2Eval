@@ -1,49 +1,56 @@
 package com.liceolapaz.des.dsv;
 
-public class Entero extends Numero {
+public class Racional extends Numero {
 
-    // SI PONE + ES PUBLICA / SI PONE - ES PRIVADA / SI PONE # ES PROTECTED
+    private int numerador;
+    private int denominador;
 
-    // declaramos el tipo de dato que vamos a usar.Si fuese p. ej. coches, usariamos Marca /eodelo etc...
-    // ATRIBUTOS::
-    private int valor;
-
-    // esto es un constructor. click derecho generar constructor equivale a igualar algo a = New x...
-    public Entero(int valor) {
-        this.valor = valor;
+    public Racional(int numerador, int denominador) {
+        this.numerador = numerador;
+        this.denominador = denominador;
     }
 
-
-    // GENERAMOS GETTER Y SETTER CON CLICK DERECHO GENERATE GETTER & SETTER
-    public int getValor() {
-        return valor;
+    public int getNumerador() {
+        return numerador;
     }
 
-    public void setValor(int valor) {
-        this.valor = valor;
+    public void setNumerador(int numerador) {
+        this.numerador = numerador;
+    }
+
+    public int getDenominador() {
+        return denominador;
+    }
+
+    public void setDenominador(int denominador) {
+        this.denominador = denominador;
     }
 
     @Override
     protected Numero suma(Numero operando) {
-        Entero resultado = null;
+        Racional resultado = null;
 
         // comprobar si (variable de la izquierda) operando  es un entero
-        if (operando instanceof Entero) {
+        if (operando instanceof Racional) {
             // crear variable local
             // esta operación lo que hace es tratar el operando en vez como un numero, como un entero.
 
-            Entero op = (Entero) operando;
+            Racional op = (Racional) operando;
 
             // Resultado antes era null y ahora será un nuevo entero
             // en new Entero ( sumanos el valor que obtenemos de un operando + el valor del segundo )
-            resultado = new Entero(getValor() + op.getValor());
+            // resultado = new Racional(getValor() + op.getValor());
+            resultado = new Racional(
+                    (getNumerador() * op.getDenominador())+(getDenominador()* op.getNumerador()),
+                    (getDenominador()*op.getDenominador())
+                    );
 
             // OTRA FORMA DE HACERLO
             // result = (getValor() + op.getValor());
             // resultado = new Entero (result);
 
         } else {
-            System.out.println("El operando tiene que ser un número entero.");
+            System.out.println("El operando tiene que ser un número racional.");
         }
 
         return resultado;
@@ -51,53 +58,57 @@ public class Entero extends Numero {
 
     @Override
     protected Numero resta(Numero operando) {
-        Entero resultado = null;
+        Racional resultado = null;
 
         // comprobar si (variable de la izquierda) operando  es un entero
-        if (operando instanceof Entero) {
+        if (operando instanceof Racional) {
             // crear variable local
             // esta operación lo que hace es tratar el operando en vez como un numero, como un entero.
 
-            Entero op = (Entero) operando;
+            Racional op = (Racional) operando;
 
             // Resultado antes era null y ahora será un nuevo entero
             // en new Entero ( sumanos el valor que obtenemos de un operando + el valor del segundo )
-            resultado = new Entero(getValor() - op.getValor());
+            // resultado = new Racional(getValor() + op.getValor());
+            resultado = new Racional(
+                    (getNumerador() * op.getDenominador())-(getDenominador()* op.getNumerador()),
+                    (getDenominador()*op.getDenominador())
+            );
 
             // OTRA FORMA DE HACERLO
             // result = (getValor() + op.getValor());
             // resultado = new Entero (result);
 
         } else {
-            System.out.println("El operando tiene que ser un número entero.");
+            System.out.println("El operando tiene que ser un número racional.");
         }
 
         return resultado;
     }
 
-
     @Override
     protected Numero producto(Numero operando) {
-        Entero resultado = null;
+        Racional resultado = null;
 
         // comprobar si (variable de la izquierda) operando  es un entero
-        if (operando instanceof Entero) {
-
+        if (operando instanceof Racional) {
             // crear variable local
             // esta operación lo que hace es tratar el operando en vez como un numero, como un entero.
 
-            Entero op = (Entero) operando;
+            Racional op = (Racional) operando;
 
             // Resultado antes era null y ahora será un nuevo entero
             // en new Entero ( sumanos el valor que obtenemos de un operando + el valor del segundo )
-            resultado = new Entero(getValor() * op.getValor());
+            // resultado = new Racional(getValor() + op.getValor());
+            resultado = new Racional(getNumerador() * op.getNumerador(),
+                                    getDenominador() * op.getDenominador());
 
             // OTRA FORMA DE HACERLO
             // result = (getValor() + op.getValor());
             // resultado = new Entero (result);
 
         } else {
-            System.out.println("El operando tiene que ser un número entero.");
+            System.out.println("El operando tiene que ser un número racional.");
         }
 
         return resultado;
@@ -105,24 +116,18 @@ public class Entero extends Numero {
 
     @Override
     protected Numero division(Numero operando) {
-        Entero resultado = null;
+        Racional resultado = null;
 
         // comprobar si (variable de la izquierda) operando  es un entero
-        if (operando instanceof Entero) {
+        if (operando instanceof Racional) {
             // crear variable local
             // esta operación lo que hace es tratar el operando en vez como un numero, como un entero.
 
+            Racional op = (Racional) operando;
 
             // Resultado antes era null y ahora será un nuevo entero
             // en new Entero ( sumanos el valor que obtenemos de un operando + el valor del segundo )
-
-            Entero op = (Entero) operando;
-            if (op.getValor() != 0) {
-                resultado = new Entero(getValor() / op.getValor());
-            } else {
-                System.out.println("No puedes dividir entre 0.");
-            }
-
+            // resultado = new Racional(getValor() + op.getValor());
 
 
             // OTRA FORMA DE HACERLO
@@ -130,7 +135,7 @@ public class Entero extends Numero {
             // resultado = new Entero (result);
 
         } else {
-            System.out.println("El operando tiene que ser un número entero.");
+            System.out.println("El operando tiene que ser un número racional.");
         }
 
         return resultado;
@@ -138,10 +143,6 @@ public class Entero extends Numero {
 
     @Override
     protected String mostrar() {
-
-        return "" + valor;
-
-        // return String.valueOf(valor);
+        return numerador + " / " + denominador;
     }
 }
-

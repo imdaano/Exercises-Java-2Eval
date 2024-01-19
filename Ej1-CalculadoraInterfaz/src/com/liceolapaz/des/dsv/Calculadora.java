@@ -51,9 +51,63 @@ public class Calculadora {
                         }
 
                     case 2:
+                        System.out.println("Primero introducimos los datos de la primera fracción. ");
+                        pedirNumerador();
+                        int primerNumerador = leerNumero();
+                        pedirDenominador();
+                        int primerDenominador = leerNumero();
+                        Racional racional1 = new Racional(primerNumerador, primerDenominador);
+                        System.out.println("Introduce ahora los datos de la siguiente fracción: ");
+                        pedirNumerador();
+                        int segundoNumerador = leerNumero();
+                        pedirDenominador();
+                        int segundoDenominador = leerNumero();
+                        Racional racional2 = new Racional(segundoNumerador, segundoDenominador);
+
+                        switch (opcion) {
+                            case 1:{
+                                Numero resultado = racional1.suma(racional2);
+                                System.out.println("El resultado es: " + resultado.mostrar());
+                                break;
+                            }
+                            case 2:{
+                                Numero resultado = racional1.resta(racional2);
+                                System.out.println("El resultado es: " + resultado.mostrar());
+                                break;
+                            }
+                            case 3: {
+                                Numero resultado = racional1.producto(racional2);
+                                System.out.println("El resultado es: " + resultado.mostrar());
+                                break;
+                            }
+                            case 4:{
+                                Numero resultado = racional1.division(racional2);
+
+                                if (resultado  != null) {
+                                    System.out.println("El resultado es: " + resultado.mostrar());
+                                }
+                                break;
+                            }
+                        }
+
+
+
                 }
         }
 
+    }
+
+    private static void pedirDenominador() {
+        System.out.print("Introduce primer denominador: ");
+    }
+
+    private static int leerNumero() {
+        Scanner teclado = new Scanner(System.in);
+        return teclado.nextInt();
+    }
+
+    private static void pedirNumerador() {
+        System.out.print("Introduce primer Numerador: ");
     }
 
     private static void pedirSegundoOperando() {

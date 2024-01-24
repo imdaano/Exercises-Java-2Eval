@@ -89,9 +89,47 @@ public class Calculadora {
                                 break;
                             }
                         }
+                    case 3:
+                        System.out.println("Primero introducimos los datos de la primera fracción. ");
+                        pedirNumerador();
+                        int primerNumeradorComplejo = leerNumero();
+                        pedirDenominador();
+                        int primerDenominadorComplejo = leerNumero();
+                        Complejo complejo1 = new Complejo(primerNumeradorComplejo, primerDenominadorComplejo);
+                        System.out.println("Introduce ahora los datos de la siguiente fracción: ");
+                        pedirNumerador();
+                        int segundoNumeradorComplejo = leerNumero();
+                        pedirDenominador();
+                        int segundoDenominadorComplejo = leerNumero();
+                        Complejo complejo2 = new Complejo(segundoNumeradorComplejo, segundoDenominadorComplejo);
 
+                        switch (opcion) {
+                            case 1:{
+                                Numero resultado = complejo1.suma(complejo2);
+                                System.out.println("El resultado es: " + resultado.mostrar());
+                                break;
+                            }
+                            case 2:{
+                                Numero resultado = complejo1.resta(complejo2);
+                                System.out.println("El resultado es: " + resultado.mostrar());
+                                break;
+                            }
+                            case 3: {
+                                Numero resultado = complejo1.producto(complejo2);
+                                System.out.println("El resultado es: " + resultado.mostrar());
+                                break;
+                            }
+                            case 4:{
+                                Numero resultado = complejo1.division(complejo2);
 
+                                if (resultado  != null) {
+                                    System.out.println("El resultado es: " + resultado.mostrar());
+                                }
+                                break;
+                            }
+                        }
 
+                        break;
                 }
         }
 

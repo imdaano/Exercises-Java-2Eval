@@ -49,7 +49,7 @@ public class Calculadora {
                                 break;
                             }
                         }
-
+                        break;
                     case 2:
                         System.out.println("Primero introducimos los datos de la primera fracción. ");
                         pedirNumerador();
@@ -89,6 +89,7 @@ public class Calculadora {
                                 break;
                             }
                         }
+                        break;
                     case 3:
                         System.out.println("Primero introducimos los datos de la primera fracción. ");
                         pedirNumerador();

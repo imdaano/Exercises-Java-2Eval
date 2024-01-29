@@ -106,4 +106,22 @@ public class Complejo extends Numero {
             return numerador + "-" + (-1 * denominador) + "i";
         }
     }
+
+    public static void main (String[] args) {
+        Numero numero1 = null;
+        Numero numero2 = null;
+        if(1==2) {
+            numero1 = new Entero(1);
+            numero2 = new Entero(2);
+        } else (1==3) {
+            numero1 = new Racional(2,3);
+            numero2 = new Racional(2,5);
+        } else (1==3) {
+            numero1 = new Complejo2(4,1);
+            numero2 = new Complejo2(5,7);
+        }
+        if (1==2) {
+            numero1.suma(numero2);
+        }
+    }
 }

@@ -4,136 +4,78 @@ import java.util.Scanner;
 
 public class Calculadora {
     public static void main(String[] args) {
-        escribirMenu();
-        int opcion = leerOpcion();
-        switch (opcion) {
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-                submenu();
-                int opcionSubmenu = leerOpcion();
-                switch (opcionSubmenu) {
+        do {
+            escribirMenu();
+            int opcion = leerOpcion();
+            switch (opcion) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                    submenu();
+                    int opcionSubmenu = leerOpcion();
+                    Numero numero1 = null;
+                    Numero numero2 = null;
+                    switch (opcionSubmenu) {
+                        case 1:
+                            pedirOperando();
+                            int operando = leerOperando();
+                            pedirSegundoOperando();
+                            int segundoOperando = leerOperando();
+                            numero1 = new Entero(operando);
+                            numero2 = new Entero(segundoOperando);
+                            break;
+                        case 2:
+                            System.out.println("Primero introducimos los datos de la primera fracción. ");
+                            pedirNumerador();
+                            int primerNumerador = leerNumero();
+                            pedirDenominador();
+                            int primerDenominador = leerNumero();
+                            numero1 = new Racional(primerNumerador, primerDenominador);
+                            System.out.println("Introduce ahora los datos de la siguiente fracción: ");
+                            pedirNumerador();
+                            int segundoNumerador = leerNumero();
+                            pedirDenominador();
+                            int segundoDenominador = leerNumero();
+                            numero2 = new Racional(segundoNumerador, segundoDenominador);
+                            break;
+                        case 3:
+                            System.out.println("Primero introducimos los datos de la primera fracción. ");
+                            pedirNumerador();
+                            int primerNumeradorComplejo2 = leerNumero();
+                            pedirDenominador();
+                            int primerDenominadorComplejo2 = leerNumero();
+                            numero1 = new Complejo2(primerNumeradorComplejo2, primerDenominadorComplejo2);
+                            System.out.println("Introduce ahora los datos de la siguiente fracción: ");
+                            pedirNumerador();
+                            int segundoNumeradorComplejo2 = leerNumero();
+                            pedirDenominador();
+                            int segundoDenominadorComplejo2 = leerNumero();
+                            numero2 = new Complejo2(segundoNumeradorComplejo2, segundoDenominadorComplejo2);
+                            break;
+                    }
+                    Numero resultado = null;
+                    switch (opcion) {
+                    // USANDO LAS LLAVES PODEMOS REUSAR UNA VARIABLE PROQUE SOLO SE ESTA GUARDANDO DENTRO
+                    // DE ESAS LLAVES. AL CAMBIAR DE CASO SE CREA OTRA VARIABLE CON EL MISMO NOMBRE
                     case 1:
-                        pedirOperando();
-                        int operando = leerOperando();
-                        pedirSegundoOperando();
-                        int segundoOperando = leerOperando();
-                        Entero entero1 = new Entero(operando);
-                        Entero entero2 = new Entero(segundoOperando);
-                        switch (opcion) {
-                            // USANDO LAS LLAVES PODEMOS REUSAR UNA VARIABLE PROQUE SOLO SE ESTA GUARDANDO DENTRO
-                            // DE ESAS LLAVES. AL CAMBIAR DE CASO SE CREA OTRA VARIABLE CON EL MISMO NOMBRE
-                            case 1:{
-                                Numero resultado = entero1.suma(entero2);
-                                System.out.println("El resultado es: " + resultado.mostrar());
-                               break;
-                            }
-                            case 2: {
-                                Numero resultado = entero1.resta(entero2);
-
-                                System.out.println("El resultado es: " + resultado.mostrar());
-                                break;
-                            }
-                            case 3:{
-                                Numero resultado = entero1.producto(entero2);
-                                System.out.println("El resultado es: " + resultado.mostrar());
-                                break;
-                            }
-                            case 4:{
-                                Numero resultado = entero1.division(entero2);
-
-                                if (resultado  != null) {
-                                System.out.println("El resultado es: " + resultado.mostrar());
-                                }
-                                break;
-                            }
-                        }
+                        resultado = numero1.suma(numero2);
                         break;
                     case 2:
-                        System.out.println("Primero introducimos los datos de la primera fracción. ");
-                        pedirNumerador();
-                        int primerNumerador = leerNumero();
-                        pedirDenominador();
-                        int primerDenominador = leerNumero();
-                        Racional racional1 = new Racional(primerNumerador, primerDenominador);
-                        System.out.println("Introduce ahora los datos de la siguiente fracción: ");
-                        pedirNumerador();
-                        int segundoNumerador = leerNumero();
-                        pedirDenominador();
-                        int segundoDenominador = leerNumero();
-                        Racional racional2 = new Racional(segundoNumerador, segundoDenominador);
-
-                        switch (opcion) {
-                            case 1:{
-                                Numero resultado = racional1.suma(racional2);
-                                System.out.println("El resultado es: " + resultado.mostrar());
-                                break;
-                            }
-                            case 2:{
-                                Numero resultado = racional1.resta(racional2);
-                                System.out.println("El resultado es: " + resultado.mostrar());
-                                break;
-                            }
-                            case 3: {
-                                Numero resultado = racional1.producto(racional2);
-                                System.out.println("El resultado es: " + resultado.mostrar());
-                                break;
-                            }
-                            case 4:{
-                                Numero resultado = racional1.division(racional2);
-
-                                if (resultado  != null) {
-                                    System.out.println("El resultado es: " + resultado.mostrar());
-                                }
-                                break;
-                            }
-                        }
+                        resultado = numero1.resta(numero2);
                         break;
                     case 3:
-                        System.out.println("Primero introducimos los datos de la primera fracción. ");
-                        pedirNumerador();
-                        int primerNumeradorComplejo = leerNumero();
-                        pedirDenominador();
-                        int primerDenominadorComplejo = leerNumero();
-                        Complejo complejo1 = new Complejo(primerNumeradorComplejo, primerDenominadorComplejo);
-                        System.out.println("Introduce ahora los datos de la siguiente fracción: ");
-                        pedirNumerador();
-                        int segundoNumeradorComplejo = leerNumero();
-                        pedirDenominador();
-                        int segundoDenominadorComplejo = leerNumero();
-                        Complejo complejo2 = new Complejo(segundoNumeradorComplejo, segundoDenominadorComplejo);
-
-                        switch (opcion) {
-                            case 1:{
-                                Numero resultado = complejo1.suma(complejo2);
-                                System.out.println("El resultado es: " + resultado.mostrar());
-                                break;
-                            }
-                            case 2:{
-                                Numero resultado = complejo1.resta(complejo2);
-                                System.out.println("El resultado es: " + resultado.mostrar());
-                                break;
-                            }
-                            case 3: {
-                                Numero resultado = complejo1.producto(complejo2);
-                                System.out.println("El resultado es: " + resultado.mostrar());
-                                break;
-                            }
-                            case 4:{
-                                Numero resultado = complejo1.division(complejo2);
-
-                                if (resultado  != null) {
-                                    System.out.println("El resultado es: " + resultado.mostrar());
-                                }
-                                break;
-                            }
-                        }
-
+                        resultado = numero1.producto(numero2);
                         break;
-                }
-        }
-
+                    case 4:
+                        resultado = numero1.division(numero2);
+                        break;
+                    }
+                    if (resultado != null) {
+                        System.out.println("El resultado es: " + resultado.mostrar());
+                    }
+            }
+        } while (true);
     }
 
     private static void pedirDenominador() {

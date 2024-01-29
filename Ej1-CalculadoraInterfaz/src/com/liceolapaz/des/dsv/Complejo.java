@@ -1,127 +1,144 @@
 package com.liceolapaz.des.dsv;
 
-public class Complejo extends Numero {
-    private int numerador;
-    private int denominador;
+public class Complejo implements Numero {
+    //creamos las variables para parte real e imaginaria.
+    private int real;
+    private int imaginaria;
 
-    public Complejo(int numerador, int denominador) {
-        this.numerador = numerador;
-        this.denominador = denominador;
+    // Creamos el constructor
+    public Complejo(int real, int imaginaria) {
+        this.real = real;
+        this.imaginaria = imaginaria;
     }
 
-    public int getNumerador() {
-        return numerador;
+    // Creamos los Getters y Setters
+    public int getReal() {
+        return real;
     }
 
-    public void setNumerador(int numerador) {
-        this.numerador = numerador;
+    public void setReal(int real) {
+        this.real = real;
     }
 
-    public int getDenominador() {
-        return denominador;
+    public int getImaginaria() {
+        return imaginaria;
     }
 
-    public void setDenominador(int denominador) {
-        this.denominador = denominador;
+    public void setImaginaria(int imaginaria) {
+        this.imaginaria = imaginaria;
     }
+
+
 
     @Override
-    protected Numero suma(Numero operando) {
-        Complejo resultado;
+    public Numero suma(Numero operando) {
+        // Creamos variable resultado desde Numero
+        Numero resultado;
+        // Inicializamos la variable resultado a null
         resultado = null;
+
         if (operando instanceof Complejo) {
+            // inicializamos la segunda variable op y asignamos a operando como complejo2
             Complejo op = (Complejo) operando;
-            int a = getNumerador();
-            int b = getDenominador();
-            int c = op.getNumerador();
-            int d = op.getDenominador();
-            int nuevoNumerador = a + c;
-            int nuevoDenominador = b + d;
-            resultado = new Complejo(nuevoNumerador, nuevoDenominador);
+
+            // inicializamos 4 variables
+            int a = getReal();
+            int b = getImaginaria();
+            int c = op.getReal();
+            int d = op.getImaginaria();
+
+            // Creamos las operaciones para la parte real y la parte imaginaria
+            int parteReal = a + c;
+            int parteImaginaria = b + d;
+            resultado = new Complejo(parteReal, parteImaginaria);
         }
+
         return resultado;
     }
 
     @Override
-    protected Numero resta(Numero operando) {
-        Complejo resultado;
+    public Numero resta(Numero operando) {
+        // Creamos variable resultado desde Numero
+        Numero resultado;
+        // Inicializamos la variable resultado a null
         resultado = null;
-        if (operando instanceof Complejo) {
-            Complejo op = (Complejo) operando;
-            int a = getNumerador();
-            int b = getDenominador();
-            int c = op.getNumerador();
-            int d = op.getDenominador();
-            int nuevoNumerador = a - c;
-            int nuevoDenominador = b - d;
-            resultado = new Complejo(nuevoNumerador, nuevoDenominador);
-        }
-        return resultado;
 
+        if (operando instanceof Complejo) {
+            // inicializamos la segunda variable op y asignamos a operando como complejo2
+            Complejo op = (Complejo) operando;
+
+            // inicializamos 4 variables
+            int a = getReal();
+            int b = getImaginaria();
+            int c = op.getReal();
+            int d = op.getImaginaria();
+
+            // Creamos las operaciones para la parte real y la parte imaginaria
+            int parteReal = a - c;
+            int parteImaginaria = b - d;
+            resultado = new Complejo(parteReal, parteImaginaria);
+        }
+
+        return resultado;
+    }
+
+
+    @Override
+    public Numero producto(Numero operando) {
+        Numero resultado;
+        // Inicializamos la variable resultado a null
+        resultado = null;
+
+        if (operando instanceof Complejo) {
+            // inicializamos la segunda variable op y asignamos a operando como complejo2
+            Complejo op = (Complejo) operando;
+
+            // inicializamos 4 variables
+            int a = getReal();
+            int b = getImaginaria();
+            int c = op.getReal();
+            int d = op.getImaginaria();
+
+            // Creamos las operaciones para la parte real y la parte imaginaria
+            int parteReal = (a * c) - (b * d);
+            int parteImaginaria = (a * d) + (b * c);
+            resultado = new Complejo(parteReal, parteImaginaria);
+        }
+
+        return resultado;
     }
 
     @Override
-    protected Numero producto(Numero operando) {
-        Complejo resultado;
+    public Numero division(Numero operando) {
+        Numero resultado;
+        // Inicializamos la variable resultado a null
         resultado = null;
-        if (operando instanceof Complejo) {
-            Complejo op = (Complejo) operando;
-            int a = getNumerador();
-            int b = getDenominador();
-            int c = op.getNumerador();
-            int d = op.getDenominador();
-            int nuevoNumerador = (a * c) - (b * d);
-            int nuevoDenominador = (a * d) + (b * c);
-            resultado = new Complejo(nuevoNumerador, nuevoDenominador);
-        }
-        return resultado;
 
+        if (operando instanceof Complejo) {
+            // inicializamos la segunda variable op y asignamos a operando como complejo2
+            Complejo op = (Complejo) operando;
+
+            // inicializamos 4 variables
+            int a = getReal();
+            int b = getImaginaria();
+            int c = op.getReal();
+            int d = op.getImaginaria();
+
+            // Creamos las operaciones para la parte real y la parte imaginaria
+            double parteReal = ((a * c) + (b * c)) / (Math.pow(c, 2) + Math.pow(d, 2));
+            double parteImaginaria = ((b * c) - (a * d)) / (Math.pow(c, 2) + Math.pow(d, 2));
+            resultado = new Complejo((int) parteReal, (int) parteImaginaria);
+        }
+
+        return resultado;
     }
 
     @Override
-    protected Numero division(Numero operando) {
-        Complejo resultado;
-        resultado = null;
-        if (operando instanceof Complejo) {
-            Complejo op = (Complejo) operando;
-            int a = getNumerador();
-            int b = getDenominador();
-            int c = op.getNumerador();
-            int d = op.getDenominador();
-            double nuevoNumerador = ((a * c) + (b * c)) / (Math.pow(c, 2) + Math.pow(d, 2));
-            double nuevoDenominador = ((b * c) - (a * d)) / (Math.pow(c, 2) + Math.pow(d, 2));
-            resultado = new Complejo((int) nuevoNumerador, (int) nuevoDenominador);
-        }
-        return resultado;
-
-
-    }
-
-    @Override
-    protected String mostrar() {
-        if (denominador >= 0) {
-            return numerador + "+" + denominador + "i";
-        }
-        else {
-            return numerador + "-" + (-1 * denominador) + "i";
-        }
-    }
-
-    public static void main (String[] args) {
-        Numero numero1 = null;
-        Numero numero2 = null;
-        if(1==2) {
-            numero1 = new Entero(1);
-            numero2 = new Entero(2);
-        } else (1==3) {
-            numero1 = new Racional(2,3);
-            numero2 = new Racional(2,5);
-        } else (1==3) {
-            numero1 = new Complejo2(4,1);
-            numero2 = new Complejo2(5,7);
-        }
-        if (1==2) {
-            numero1.suma(numero2);
+    public String mostrar() {
+        if (imaginaria >= 0) {
+            return real + "+" + imaginaria + "i";
+        } else {
+            return real + "-" + (-1 * imaginaria) + "i";
         }
     }
 }

@@ -45,18 +45,18 @@ public class Calculadora {
                             int primerNumeradorComplejo2 = leerNumero();
                             pedirDenominador();
                             int primerDenominadorComplejo2 = leerNumero();
-                            numero1 = new Complejo2(primerNumeradorComplejo2, primerDenominadorComplejo2);
+                            numero1 = new Complejo(primerNumeradorComplejo2, primerDenominadorComplejo2);
                             System.out.println("Introduce ahora los datos de la siguiente fracción: ");
                             pedirNumerador();
                             int segundoNumeradorComplejo2 = leerNumero();
                             pedirDenominador();
                             int segundoDenominadorComplejo2 = leerNumero();
-                            numero2 = new Complejo2(segundoNumeradorComplejo2, segundoDenominadorComplejo2);
+                            numero2 = new Complejo(segundoNumeradorComplejo2, segundoDenominadorComplejo2);
                             break;
                     }
                     Numero resultado = null;
                     switch (opcion) {
-                    // USANDO LAS LLAVES PODEMOS REUSAR UNA VARIABLE PROQUE SOLO SE ESTA GUARDANDO DENTRO
+                    // USANDO LAS LLAVES PODEMOS REUSAR UNA VARIABLE PORQUE SOLO SE ESTA GUARDANDO DENTRO
                     // DE ESAS LLAVES. AL CAMBIAR DE CASO SE CREA OTRA VARIABLE CON EL MISMO NOMBRE
                     case 1:
                         resultado = numero1.suma(numero2);

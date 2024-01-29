@@ -1,6 +1,6 @@
 package com.liceolapaz.des.dsv;
 
-public class Racional extends Numero {
+public class Racional implements Numero {
 
     private int numerador;
     private int denominador;
@@ -27,7 +27,7 @@ public class Racional extends Numero {
     }
 
     @Override
-    protected Numero suma(Numero operando) {
+    public Numero suma(Numero operando) {
         Racional resultado = null;
 
         // comprobar si (variable de la izquierda) operando  es un entero
@@ -57,7 +57,7 @@ public class Racional extends Numero {
     }
 
     @Override
-    protected Numero resta(Numero operando) {
+    public Numero resta(Numero operando) {
         Racional resultado = null;
 
         // comprobar si (variable de la izquierda) operando  es un entero
@@ -87,7 +87,7 @@ public class Racional extends Numero {
     }
 
     @Override
-    protected Numero producto(Numero operando) {
+    public Numero producto(Numero operando) {
         Racional resultado = null;
 
         // comprobar si (variable de la izquierda) operando  es un entero
@@ -115,7 +115,7 @@ public class Racional extends Numero {
     }
 
     @Override
-    protected Numero division(Numero operando) {
+    public Numero division(Numero operando) {
         Racional resultado = null;
 
         // comprobar si (variable de la izquierda) operando  es un entero
@@ -142,7 +142,7 @@ public class Racional extends Numero {
     }
 
     @Override
-    protected String mostrar() {
+    public String mostrar() {
         return numerador + " / " + denominador;
     }
 }

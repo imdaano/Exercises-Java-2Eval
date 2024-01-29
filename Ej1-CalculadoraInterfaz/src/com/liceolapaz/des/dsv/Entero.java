@@ -1,6 +1,6 @@
 package com.liceolapaz.des.dsv;
 
-public class Entero extends Numero {
+public class Entero implements Numero {
 
     // SI PONE + ES PUBLICA / SI PONE - ES PRIVADA / SI PONE # ES PROTECTED
 
@@ -23,8 +23,8 @@ public class Entero extends Numero {
         this.valor = valor;
     }
 
-    @Override
-    protected Numero suma(Numero operando) {
+
+    public Numero suma(Numero operando) {
         Entero resultado = null;
 
         // comprobar si (variable de la izquierda) operando  es un entero
@@ -49,8 +49,8 @@ public class Entero extends Numero {
         return resultado;
     }
 
-    @Override
-    protected Numero resta(Numero operando) {
+
+    public Numero resta(Numero operando) {
         Entero resultado = null;
 
         // comprobar si (variable de la izquierda) operando  es un entero
@@ -76,8 +76,8 @@ public class Entero extends Numero {
     }
 
 
-    @Override
-    protected Numero producto(Numero operando) {
+
+    public Numero producto(Numero operando) {
         Entero resultado = null;
 
         // comprobar si (variable de la izquierda) operando  es un entero
@@ -103,8 +103,8 @@ public class Entero extends Numero {
         return resultado;
     }
 
-    @Override
-    protected Numero division(Numero operando) {
+
+    public Numero division(Numero operando) {
         Entero resultado = null;
 
         // comprobar si (variable de la izquierda) operando  es un entero
@@ -136,8 +136,8 @@ public class Entero extends Numero {
         return resultado;
     }
 
-    @Override
-    protected String mostrar() {
+
+    public String mostrar() {
 
         return "" + valor;
 

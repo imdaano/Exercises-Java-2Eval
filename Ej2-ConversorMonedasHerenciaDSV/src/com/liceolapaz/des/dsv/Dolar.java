@@ -1,15 +1,20 @@
 package com.liceolapaz.des.dsv;
 
 public class Dolar extends Moneda{
-    // 1 U.S. dollar = 0.883509299 Euros
-    public Dolar(double cantidadEntrada) {
-        this.cantidad = cantidadEntrada;
+
+    private final static double CONVERSION_A_DOLAR = 0.883509299;
+
+    // usamos el super para acceder al constructor que esta creado en la clase padre Moneda
+    public Dolar(double cantidad) {
+        super(cantidad);
     }
+    // 1 U.S. dollar = 0.883509299 Euros
+
 
     @Override
     protected double cantidadEnEuros() {
 
-        double resultado = cantidad * 0.883509299;
+        double resultado = cantidad * CONVERSION_A_DOLAR;
 
         return resultado;
     }

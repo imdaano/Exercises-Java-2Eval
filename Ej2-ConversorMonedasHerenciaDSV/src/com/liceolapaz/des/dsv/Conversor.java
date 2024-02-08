@@ -18,32 +18,28 @@ public class Conversor {
                 """);
 
             int opcion = leerOpcion();
+
             switch (opcion) {
                 case 1:
-                    System.out.println("Escriba la cantidad:");
-                    double cantidad = leerCantidad();
-                    // crea objeto tipo dolar nuevo
-                    Dolar dolar = new Dolar(cantidad);
-                    // imprimimos resultado de la  operacion
-                    System.out.println("La cantidad en euros es: " + dolar.cantidadEnEuros() + "€");
-                    break;
-
                 case 2:
-                    System.out.println("Escriba la cantidad:");
-                    double cantidad2 = leerCantidad();
-                    // crea objeto tipo dolar nuevo
-                    Libra libra = new Libra(cantidad2);
-                    // imprimimos resultado de la operacion
-                    System.out.println("La cantidad en euros es: " + libra.cantidadEnEuros() + "€");
-                    break;
-
                 case 3:
-                    System.out.println("Escriba la cantidad:");
-                    double cantidad3 = leerCantidad();
-                    // crea objeto tipo dolar nuevo
-                    Yen yen = new Yen(cantidad3);
-                    // imprimimos resultado de la operacion
-                    System.out.println("La cantidad en euros es: " + yen.cantidadEnEuros() + "€");
+                System.out.println("Escriba la cantidad:");
+                double cantidad = leerCantidad();
+                Moneda moneda = null;
+                    if (opcion == 1) {
+                        // crea objeto tipo dolar nuevo
+                        moneda = new Dolar(cantidad);
+                        // imprimimos resultado de la operacion
+                    } else if (opcion == 2){
+                        // crea objeto tipo dolar nuevo
+                        moneda = new Libra(cantidad);
+                        // imprimimos resultado de la operacion
+                    } else if (opcion == 3) {
+                        // crea objeto tipo dolar nuevo
+                        moneda = new Yen(cantidad);
+                        // imprimimos resultado de la operacion
+                    }
+                    System.out.println("La cantidad en euros es: " + moneda.cantidadEnEuros() + "€");
                     break;
 
                 case 0:

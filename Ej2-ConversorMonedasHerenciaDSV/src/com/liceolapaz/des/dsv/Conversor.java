@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Conversor {
+
     public static void main(String[] args) {
+
         do {
             System.out.println("""
                 
@@ -39,7 +41,7 @@ public class Conversor {
                         moneda = new Yen(cantidad);
                         // imprimimos resultado de la operacion
                     }
-                    System.out.println("La cantidad en euros es: " + moneda.cantidadEnEuros() + "€");
+                    System.out.println("La cantidad en euros es: " + convertirADosDecimales(moneda.cantidadEnEuros()) + "€");
                     break;
 
                 case 0:
@@ -60,5 +62,9 @@ public class Conversor {
     private static int leerOpcion() {
         Scanner teclado = new Scanner(System.in);
         return teclado.nextInt();
+    }
+
+    private static String convertirADosDecimales(double valor) {
+        return "" + Math.round(valor*100) / 100.0;
     }
 }

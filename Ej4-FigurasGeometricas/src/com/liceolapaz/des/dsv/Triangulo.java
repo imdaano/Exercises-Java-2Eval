@@ -20,6 +20,6 @@ public class Triangulo implements FiguraGeometrica{
 
     @Override
     public double calcularPerimetro() {
-        return lado1+lado2+lado3;
+        return lado1 + lado2 + lado3;
     }
 }

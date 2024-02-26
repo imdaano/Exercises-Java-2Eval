@@ -6,6 +6,7 @@ public class Principal {
     public static void main(String[] args) {
 
         Scanner teclado = new Scanner(System.in);
+        FiguraGeometrica figura = null;
 
         while (true) {
             System.out.println("""
@@ -30,8 +31,8 @@ public class Principal {
                     double lado3 = teclado.nextDouble();
                     System.out.println("Escriba la altura: ");
                     double altura = teclado.nextDouble();
-                    Triangulo triangulo = new Triangulo(lado1, lado2, lado3, altura);
-                    mostrarResultado(triangulo);
+                    figura = new Triangulo(lado1, lado2, lado3, altura);
+                    mostrarResultado(figura);
                 }
                     break;
                 case 2: { // Rectángulo
@@ -39,16 +40,16 @@ public class Principal {
                     double base = teclado.nextDouble();
                     System.out.println("Escriba el valor de la altura: ");
                     double altura = teclado.nextDouble();
-                    Rectangulo rectangulo = new Rectangulo(base,altura);
-                    mostrarResultado(rectangulo);
+                    figura = new Rectangulo(base,altura);
+                    mostrarResultado(figura);
                 }
                     break;
                 case 3: // Cuadrado
                 {
                     System.out.println("Escriba el valor del lado: ");
                     double lado = teclado.nextDouble();
-                    Cuadrado cuadrado = new Cuadrado(lado);
-                    mostrarResultado(cuadrado);
+                    figura = new Cuadrado(lado);
+                    mostrarResultado(figura);
                 }
                     break;
                 case 4: // Pentágono
@@ -57,8 +58,8 @@ public class Principal {
                     double lado = teclado.nextDouble();
                     System.out.println("Escriba el valor del apotema: ");
                     double apotema = teclado.nextDouble();
-                    Pentagono pentagono =  new Pentagono(lado, apotema);
-                    mostrarResultado(pentagono);
+                    figura = new Pentagono(lado, apotema);
+                    mostrarResultado(figura);
                 }
                     break;
                 case 0: // Salir

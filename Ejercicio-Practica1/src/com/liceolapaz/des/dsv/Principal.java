@@ -43,7 +43,8 @@ public class Principal {
                         Departamento departamento = new Departamento(nombre, id);
 
                         departamentos[posicionLibre] = departamento;
-                        /*for (int i = 0; i < departamentos.length; i++) {
+                        /*
+                        for (int i = 0; i < departamentos.length; i++) {
                             if (departamentos[i] == null) {
                                 departamentos[i] = departamento;
                                 System.out.println(departamento);
@@ -57,16 +58,16 @@ public class Principal {
                     } else {
                         System.out.println("No hay espacio disponible para más departamentos.");
                     }
-                    break;
 
+                    break;
                 case 3:
                     // no repetir id
-                    // eliminar departamentos segun el id
+                    // a eliminar departamentos segun el id
 
                     break;
                 default:
                     System.out.println("Opción no válida.");
             }
-        }while (true);
+        } while (true);
     }
 }

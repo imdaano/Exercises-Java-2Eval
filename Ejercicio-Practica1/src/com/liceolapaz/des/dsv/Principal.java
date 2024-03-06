@@ -25,16 +25,16 @@ public class Principal {
                     }
                     break;
                 case 2:
-                    boolean habiaSitio = false;
-
+                    /*boolean habiaSitio = false;*/
+                    int posicionLibre = -1;
                     for (int i = 0; i < departamentos.length; i++) {
                         if (departamentos[i] == null) {
-                            habiaSitio = true;
+                            posicionLibre = i;
                             break;
                         }
                     }
 
-                    if (habiaSitio) {
+                    if (posicionLibre != -1) {
                         System.out.println("Introduce un departamento nuevo");
                         System.out.println("Introduce el id:");
                         int id = teclado.nextInt();
@@ -42,13 +42,16 @@ public class Principal {
                         String nombre = teclado.next();
                         Departamento departamento = new Departamento(nombre, id);
 
-                        for (int i = 0; i < departamentos.length; i++) {
+                        departamentos[posicionLibre] = departamento;
+                        /*for (int i = 0; i < departamentos.length; i++) {
                             if (departamentos[i] == null) {
                                 departamentos[i] = departamento;
                                 System.out.println(departamento);
                                 break;
                             }
                         }
+                        */
+
 
                         System.out.println("Departamento guardado");
                     } else {
@@ -57,6 +60,9 @@ public class Principal {
                     break;
 
                 case 3:
+                    // no repetir id
+                    // eliminar departamentos segun el id
+
                     break;
                 default:
                     System.out.println("Opción no válida.");
